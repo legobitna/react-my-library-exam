@@ -12,6 +12,18 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
+import styled from "styled-components";
+
+const NoBooksMessage = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.5rem;
+  color: #666;
+  font-weight: 500;
+  width: 100%;
+`;
 
 function MainPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -42,7 +54,8 @@ function MainPage() {
     );
   }
 
-  if (!books || books.length === 0) return <div>No books available</div>;
+  if (!books || books.length === 0)
+    return <NoBooksMessage>책 목록이 없습니다</NoBooksMessage>;
 
   return (
     <div className="main-container">
